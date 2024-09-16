@@ -54,7 +54,10 @@ class WeatherService {
     return `${this.baseURL}/gecode?city=${this.cityName}&appid=${this.apiKey}`;
   }
   // TODO: Create buildWeatherQuery method
-  // private buildWeatherQuery(coordinates: Coordinates): string {}
+  private buildWeatherQuery(coordinates: Coordinates): string {
+    const { lat, lon } = coordinates;
+    return `${this.baseURL}/weather?lat=${lat}&lon=${lon}&appid=${this.apiKey}`;
+  }
   // TODO: Create fetchAndDestructureLocationData method
   // private async fetchAndDestructureLocationData() {}
   // TODO: Create fetchWeatherData method

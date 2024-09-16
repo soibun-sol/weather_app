@@ -2,11 +2,41 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 // TODO: Define an interface for the Coordinates object
+ interface Coordinates{
+  lat: number;
+  lon: number;
+ }
+
+ const API_KEY = 'fe1c79808de9a65d2d9f15508a8e5b99'
+
+ const BASE_API_URL = 'api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}'
 
 // TODO: Define a class for the Weather object
 
+class Weather {
+  constructor(
+    public temperature: number,
+    public humidity: number,
+    public windSpeed: number,
+  ) {
+    this.temperature = temperature;
+    this.humidity = humidity;
+    this.windSpeed = windSpeed;
+  }
+}
+
+
 // TODO: Complete the WeatherService class
 class WeatherService {
+  private baseURl: string;
+  private apiKey: string;
+  private cityName: string;
+
+  constructor() {
+    this.baseURl = BASE_API_URL;
+    this.apiKey = API_KEY;
+    this.cityName = '';
+}
   // TODO: Define the baseURL, API key, and city name properties
   // TODO: Create fetchLocationData method
   // private async fetchLocationData(query: string) {}

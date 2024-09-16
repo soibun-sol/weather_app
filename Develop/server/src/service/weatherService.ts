@@ -44,10 +44,11 @@ class WeatherService {
     const data = await response.json();
     return data;
   }
-  
-  // private async fetchLocationData(query: string) {}
   // TODO: Create destructureLocationData method
-  // private destructureLocationData(locationData: Coordinates): Coordinates {}
+  private destructureLocationData(locationData: Coordinates): Coordinates {
+    const { lat, lon } = locationData;
+    return { lat, lon };
+  }
   // TODO: Create buildGeocodeQuery method
   // private buildGeocodeQuery(): string {}
   // TODO: Create buildWeatherQuery method

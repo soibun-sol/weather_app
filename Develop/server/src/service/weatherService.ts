@@ -85,7 +85,17 @@ class WeatherService {
     return new Weather(temp, humidity, speed);
   }
   // TODO: Complete buildForecastArray method
-  // private buildForecastArray(currentWeather: Weather, weatherData: any[]) {}
+   private buildForecastArray(currentWeather: Weather, weatherData: any[]) {
+    const forecastArray = weatherData.map((weather) => {
+      const { dt, main, wind } = weather;
+      const { temp, humidity } = main;
+      const { speed } = wind;
+      return new Weather(temp, humidity, speed);
+    });
+    forecastArray.unshift(currentWeather);
+    return forecastArray;
+
+   }
   // TODO: Complete getWeatherForCity method
   // async getWeatherForCity(city: string) {}
 }

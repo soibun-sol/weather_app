@@ -22,7 +22,14 @@ class HistoryService {
     }
   }
   // TODO: Define a write method that writes the updated cities array to the searchHistory.json file
-  // private async write(cities: City[]) {}
+   private async write(cities: City[]) {
+    fs.writeFile('searchHistory.json', JSON.stringify(cities), (err) => {
+      if (err) {
+        console.error(err);
+        return;
+      }
+    });
+  }
   // TODO: Define a getCities method that reads the cities from the searchHistory.json file and returns them as an array of City objects
   // async getCities() {}
   // TODO Define an addCity method that adds a city to the searchHistory.json file

@@ -7,7 +7,7 @@ dotenv.config();
   lon: number;
  }
 
- const API_KEY = 'fe1c79808de9a65d2d9f15508a8e5b99'
+ const API_KEY = process.env.API_KEY;
 
  const BASE_API_URL = 'api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}'
 
